@@ -1,4 +1,4 @@
-const normalAffirmations = [
+const normalAffirmations = shuffleArray([
   "prefers the window seat on airplanes but aisle seats at the movies.",
   "reads before bed every night.",
   "knows how to change a tire.",
@@ -32,8 +32,8 @@ const normalAffirmations = [
   "makes the bed every morning.",
   "separates waste into recycling, salvage, compost, textiles, hazardous materials, and trash.",
   "knows they are loved."
-];
-const absurdAffirmations = [
+]);
+const absurdAffirmations = shuffleArray([
   "can divide by zero.",
   "has over two hundred words for snow.",
   "can skeletonize a cow in under three minutes.",
@@ -71,11 +71,14 @@ const absurdAffirmations = [
   "is a beautiful and unique fragment of the divine, wrapped in what is basically several layers of ham.",
   "understands that correlation does not imply causation.",
   "has plants. Lots and lots of plants."
-];
-let affirmations = shuffleArray(normalAffirmations);
-affirmations = [
-  ...affirmations.slice(0, 3),
-  ...shuffleArray([...affirmations.slice(3), ...absurdAffirmations])
+]);
+let affirmations = [
+  ...normalAffirmations.slice(0, 3),
+  absurdAffirmations[0],
+  ...shuffleArray([
+    ...normalAffirmations.slice(3),
+    ...absurdAffirmations.slice(1)
+  ])
 ]
 
 const palettes = [
